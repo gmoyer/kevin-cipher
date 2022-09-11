@@ -3,25 +3,37 @@ const LETTER = "abcdefghijklmnopqrstuvwxyz"; //for getting correct letter positi
 
 $( document ).ready(function() {
     $( "#submit" ).click(function() {
-        var intxt = $('#inBox').val();
+        $('#output').html("");
+        var intxt = $('#inBox').val().toLowerCase();
         var outtxt = "";
         var base = "m";
+        var bswap = false;
         //cycle through all the letters in the input text
         for (let i in intxt) {
-            var unicode = LETTER.indexOf(base) * 27; //setting correct base
-            unicode += LETTER.indexOf(intxt[i]); //getting correct letter
-            var unistring = "0x0";
-            if (unicode < 100) {
-                unistring += "0";
-                if (unicode < 10) {
-                    unistring += "0";
+            if (LETTER.indexOf(intxt[i]) == -1) {
+                if (intxt[i] == " ") {
+                    $("#output").append(" ");
                 }
+                if (intxt[i] == "~") {
+                    bswap = true;
+                }
+
             }
-            unistring += unicode;
-            console.log(String.fromCodePoint(unistring));
-            outtxt += String.fromCodePoint(unistring);
+            else {
+                var unicode = 3400; 
+                if (bswap) {
+                    base = intxt[i];
+                    unicode += 27;
+                    bswap = false;
+                } else {
+                    unicode += LETTER.indexOf(intxt[i]) + 1; //getting correct letter
+                }
+                unicode += LETTER.indexOf(base) * 27; //setting correct base
+                var unistring = "0x" + unicode;
+                console.log(unistring);
+                $("#output").append(String.fromCodePoint(unistring));
+            }
         }
-        console.log(outtxt);
-        $("#inBox").html(outtxt);
+        //$("#inBox").html(outtxt);
     });
 });
