@@ -1,4 +1,5 @@
 const LETTER = "abcdefghijklmnopqrstuvwxyz"; //for getting correct letter position
+const PUNCTUATION = " .,!?";
 
 
 $( document ).ready(function() {
@@ -11,8 +12,8 @@ $( document ).ready(function() {
         //cycle through all the letters in the input text
         for (let i in intxt) {
             if (LETTER.indexOf(intxt[i]) == -1) {
-                if (intxt[i] == " ") {
-                    $("#output").append(" ");
+                if (PUNCTUATION.indexOf(intxt[i]) != -1) {
+                    $("#output").append(intxt[i]);
                 }
                 if (intxt[i] == "~") {
                     bswap = true;
