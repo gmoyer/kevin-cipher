@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'Cipher 1.8';
-    src: url('Cipher+1.8.otf') format("opentype");
+    font-family: 'Cipher 1.10';
+    src: url('Cipher+1.10.otf') format("opentype");
     font-style: BaseM;
     /*font-weight: bold;
     font-style: normal;
@@ -15,12 +15,12 @@
 }
 
 #inBox {
-    font-family: 'Cipher 1.8';
+    font-family: 'Cipher 1.10';
     font-size: 50px;
 }
 
 #output {
-    font-family: 'Cipher 1.8';
+    font-family: 'Cipher 1.10';
     font-size: 75px;
 }
 
