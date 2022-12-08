@@ -11,12 +11,12 @@ $( document ).ready(function() {
         if (currentlength == 1 + textlength) {
             //------------------Single character added-------------------
             var loc = document.getElementById('inBox').selectionStart;
-            console.log(loc);
             var intxt = $('#inBox').val().toLowerCase().slice(loc-1, loc);
             //cycle through all the letters in the input text
             if (LETTER.indexOf(intxt) == -1) {
                 if (PUNCTUATION.indexOf(intxt) != -1) {
                     $("#inBox").append(intxt);
+                    //textlength += 1;
                 } else {
                     $("#inBox").val($('#inBox').val().slice(0, loc-1)+$('#inBox').val().slice(loc));
                 }
@@ -26,6 +26,8 @@ $( document ).ready(function() {
                     } else {
                         bswap = true;
                     }
+                    //remove the thing so that it is not included
+                    $("#inBox").val($('#inBox').val().slice(0, loc-1)+$('#inBox').val().slice(loc));
                 }
 
             }
@@ -38,16 +40,20 @@ $( document ).ready(function() {
                     //find the correct base
                     if (textlength != 0) {
                         var prevChar = $("#inBox").val().slice(loc-2, loc-1);
-                        //console.log(prevChar.charCodeAt());
+                        console.log(prevChar.charCodeAt());
                     }
                     unicode += LETTER.indexOf(intxt) + 1; //getting correct letter
                 }
                 unicode += LETTER.indexOf(base) * 27; //setting correct base
                 var unistring = "0x" + unicode;
                 $("#inBox").val($('#inBox').val().slice(0, loc-1)+String.fromCodePoint(unistring)+$('#inBox').val().slice(loc));
-                textlength += 1;
+                //textlength += 1;
             }
+            document.getElementById('inBox').setSelectionRange(loc, loc);
         }
         //$("#inBox").html(outtxt);
+
+        //update the new textlength
+        textlength = $('#inBox').val().length;
     });
 });
