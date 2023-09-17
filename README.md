@@ -1,8 +1,8 @@
 # kevin-cypher
 
+Visit [this project description](https://gmoyer.github.io/web/projects/cipher)
 
-
-## Upload image of writing and process it
+## Plan to upload image of writing and process it
 
 Use the [Sobel operator](https://en.wikipedia.org/wiki/Sobel_operator) through [convolution](https://en.wikipedia.org/wiki/Kernel_(image_processing)#Convolution) to determine the strength ([gradient magnitude](https://en.wikipedia.org/wiki/Sobel_operator#:~:text=to%20give%20the-,gradient%20magnitude,-%2C%20using%3A)) and direction ([atan2](https://en.wikipedia.org/wiki/Sobel_operator#:~:text=gradient%27s%20direction)) of the gradient in the image. 
 
