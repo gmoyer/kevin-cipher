@@ -1,4 +1,4 @@
-# kevin-cypher
+# kevin-cipher
 
 Visit [this project description](https://gmoyer.github.io/web/projects/cipher)
 
